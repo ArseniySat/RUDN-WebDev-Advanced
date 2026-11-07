@@ -1,13 +1,19 @@
 import { BoardCard } from "../BoardCard/BoardCard";
 import styles from "./BoardColumn.module.css";
+import type { Card } from "../../types/card";
 
-export function BoardColumn() {
+type BoardColumnProps = {
+  cards: Card[];
+};
+
+export function BoardColumn({ cards }: BoardColumnProps) {
   return (
     <section className={styles.column}>
       <h2 className={styles.title}>К выполнению</h2>
       <div className={styles.cards}>
-        <BoardCard title="Изучить материалы Темы 1" />
-        <BoardCard title="Выполнить задания семинара" />
+       {cards.map((card) => (
+  <BoardCard key={card.id} title={card.title} isDone={card.isDone} />
+))}
       </div>
     </section>
   );
