@@ -22,7 +22,7 @@
 
 ---
 
-- [ ] 3. Добавить кнопку удаления и стиль для неё
+- [x] 3. Добавить кнопку удаления и стиль для неё
 
 **Файлы:** `client/src/components/BoardCard/BoardCard.tsx`, `client/src/components/BoardCard/BoardCard.module.css`
 
@@ -34,7 +34,7 @@
 
 ---
 
-- [ ] 4. Подключить обработчик удаления через App.tsx
+- [x] 4. Подключить обработчик удаления через App.tsx
 
 **Файлы:** `client/src/App.tsx`
 
