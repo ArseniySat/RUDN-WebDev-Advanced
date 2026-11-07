@@ -1,6 +1,6 @@
 ## Tasks
 
-- [ ] 1. Проверить наличие React Query провайдеров в корне проекта
+- [x] 1. Проверить наличие React Query провайдеров в корне проекта
 
 **Файлы:** `client/src/main.tsx` (или `client/src/main.ts`)
 
