@@ -39,7 +39,7 @@
 
 ---
 
-- [ ] 4. Подключить `useMutation` для создания карточки на сервере
+- [x] 4. Подключить `useMutation` для создания карточки на сервере
 
 **Файлы:** `client/src/components/NewCardForm/NewCardForm.tsx`
 

@@ -1,9 +1,19 @@
 import { useState } from "react";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { createCard } from "../../api/cards";
 import styles from "./NewCardForm.module.css";
 
 export function NewCardForm() {
   const [title, setTitle] = useState("");
-  const isPending = false;
+  const queryClient = useQueryClient();
+
+  const { mutate, isPending } = useMutation({
+    mutationFn: createCard,
+    onSuccess: () => {
+      setTitle("");
+      return queryClient.invalidateQueries({ queryKey: ["cards"] });
+    },
+  });
 
   return (
     <form
@@ -11,7 +21,8 @@ export function NewCardForm() {
       onSubmit={(event) => {
         event.preventDefault();
         const trimmedTitle = title.trim();
-        if (!trimmedTitle) return;
+        if (!trimmedTitle || isPending) return;
+        mutate(trimmedTitle);
       }}
     >
       <input
