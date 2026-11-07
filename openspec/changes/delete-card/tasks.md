@@ -47,7 +47,7 @@
 
 ---
 
-- [ ] 5. Пробросить onDelete через BoardColumn в BoardCard
+- [x] 5. Пробросить onDelete через BoardColumn в BoardCard
 
 **Файлы:** `client/src/components/BoardColumn/BoardColumn.tsx`, `client/src/components/BoardCard/BoardCard.tsx`
 
@@ -59,7 +59,7 @@
 
 ---
 
-- [ ] 6. Итоговая проверка всех сценариев
+- [x] 6. Итоговая проверка всех сценариев
 
 **Файлы:** нет изменений
 
