@@ -10,7 +10,7 @@
 
 ---
 
-- [ ] 2. Сделать NewCardForm контролируемым
+- [x] 2. Сделать NewCardForm контролируемым
 
 **Файлы:** `client/src/components/NewCardForm/NewCardForm.tsx`
 
