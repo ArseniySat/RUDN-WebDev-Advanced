@@ -22,7 +22,7 @@ function App() {
           ) : isError ? (
             <p>Не удалось загрузить карточки.</p>
           ) : (
-            <BoardColumn cards={cards} />
+            <BoardColumn cards={cards} onDelete={() => {}} />
           )}
         </div>
       </main>
