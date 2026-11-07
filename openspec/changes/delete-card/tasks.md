@@ -1,6 +1,6 @@
 ## Tasks
 
-- [ ] 1. Добавить функцию deleteCard в api/cards.ts
+- [x] 1. Добавить функцию deleteCard в api/cards.ts
 
 **Файлы:** `client/src/api/cards.ts`
 
@@ -10,7 +10,7 @@
 
 ---
 
-- [ ] 2. Передать id карточки в BoardCard
+- [x] 2. Передать id карточки в BoardCard
 
 **Файлы:** `client/src/components/BoardCard/BoardCard.tsx`
 

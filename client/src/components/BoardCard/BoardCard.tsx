@@ -1,6 +1,7 @@
 import styles from "./BoardCard.module.css";
 
 type BoardCardProps = {
+  id: string;
   title: string;
   isDone: boolean;
 };
