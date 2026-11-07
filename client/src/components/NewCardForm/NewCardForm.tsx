@@ -1,12 +1,48 @@
+import { useState } from "react";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { createCard } from "../../api/cards";
 import styles from "./NewCardForm.module.css";
 
 export function NewCardForm() {
+  const [title, setTitle] = useState("");
+  const queryClient = useQueryClient();
+
+  const { mutate, isPending, isError } = useMutation({
+    mutationFn: createCard,
+    onSuccess: () => {
+      setTitle("");
+      return queryClient.invalidateQueries({ queryKey: ["cards"] });
+    },
+  });
+
   return (
-    <div className={styles.form}>
-      <input className={styles.input} placeholder="Название карточки" />
-      <button className={styles.button} type="button">
-        Добавить
+    <form
+      className={styles.form}
+      onSubmit={(event) => {
+        event.preventDefault();
+
+        const trimmedTitle = title.trim();
+        if (!trimmedTitle || isPending) return;
+
+        mutate(trimmedTitle);
+      }}
+    >
+      <input
+        className={styles.input}
+        placeholder="Название карточки"
+        aria-label="Название карточки"
+        value={title}
+        onChange={(event) => setTitle(event.target.value)}
+        disabled={isPending}
+      />
+      <button
+        className={styles.button}
+        type="submit"
+        disabled={isPending || !title.trim()}
+      >
+        {isPending ? "Добавляем…" : "Добавить"}
       </button>
-    </div>
+      {isError && <p role="alert">Не удалось добавить карточку.</p>}
+    </form>
   );
 }
