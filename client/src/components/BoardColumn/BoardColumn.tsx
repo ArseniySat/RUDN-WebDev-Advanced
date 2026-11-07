@@ -1,7 +1,12 @@
 import { BoardCard } from "../BoardCard/BoardCard";
 import styles from "./BoardColumn.module.css";
+import type { Card } from "../../types/card";
 
-export function BoardColumn() {
+type BoardColumnProps = {
+  cards: Card[];
+};
+
+export function BoardColumn(_props: BoardColumnProps) {
   return (
     <section className={styles.column}>
       <h2 className={styles.title}>К выполнению</h2>
