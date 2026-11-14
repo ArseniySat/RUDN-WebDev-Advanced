@@ -1,3 +1,4 @@
+import { randomUUID } from "node:crypto";
 import type { Card } from "../types/card.ts";
 
 let cards: Card[] = [
@@ -27,10 +28,10 @@ export function getAllCards() {
 
 export function createCard(title: string) {
     const newCard: Card = {
-        id: "2",
-        title: title,
+        id: randomUUID(),
+        title,
         isDone: false,
-        isUrgent: false
+        isUrgent: false,
     };
 
     cards.push(newCard);
