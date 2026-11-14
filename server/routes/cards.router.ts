@@ -12,4 +12,4 @@ cardsRouter.post(
     post
 );
 
-cardsRouter.delete('/cards', remove);
+cardsRouter.delete('/cards/:id', remove);

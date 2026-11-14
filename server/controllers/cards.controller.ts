@@ -14,19 +14,18 @@ export function post(req: Request, res: Response) {
     res.status(201).json(newCard);
 }
 
-export function remove(req: Request, res: Response) {
-    const id = req.query.id?.toString();
-
-    if (!id) {
-        res.sendStatus(400);
-        return;
-    }
+export function remove(
+    req: Request<{ id: string }>,
+    res: Response
+) {
+    const id = req.params.id;
 
     const isDeleted = deleteCard(id);
 
     if (!isDeleted) {
-        res.sendStatus(404);
-    } else {
-        res.sendStatus(204);
+        res.status(404).json({ error: 'Карточка не найдена' });
+        return;
     }
+
+    res.status(204).end();
 }
