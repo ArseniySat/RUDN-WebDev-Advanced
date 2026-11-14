@@ -2,23 +2,23 @@ import type { Card } from "../types/card.ts";
 
 let cards: Card[] = [
     {
-        id: '1',
-        title: 'Card 1',
-        isDone: false,
-        isUrgent: false
-    },
-    {
-        id: '2',
-        title: 'Card 2',
-        isDone: false,
-        isUrgent: false
-    },
-    {
-        id: '3',
-        title: 'Card 3',
-        isDone: false,
-        isUrgent: false
-    },
+  id: "1",
+  title: "Спроектировать структуру доски",
+  isDone: true,
+  isUrgent: false,
+},
+{
+  id: "2",
+  title: "Подключить доску к серверу",
+  isDone: false,
+  isUrgent: true,
+},
+{
+  id: "3",
+  title: "Добавить фильтр выполненных карточек",
+  isDone: false,
+  isUrgent: false,
+},
 ];
 
 export function getAllCards() {
