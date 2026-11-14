@@ -5,5 +5,5 @@ const app = express();
 app.use(cardsRouter);
 
 app.listen(3001, () => {
-    console.log('Я работаю')
+    console.log('Сервер запущен: http://localhost:3001');
 });
