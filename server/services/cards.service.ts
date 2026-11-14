@@ -40,11 +40,12 @@ export function createCard(title: string) {
 }
 
 export function deleteCard(id: string) {
+    const before = cards.length;
     const newCards = cards.filter(
         card => card.id !== id
     );
 
     cards = newCards;
 
-    return newCards.length !== cards.length;
+    return newCards.length !== before;
 }
