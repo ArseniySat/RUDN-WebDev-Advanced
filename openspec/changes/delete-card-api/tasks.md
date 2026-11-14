@@ -1,14 +1,14 @@
 # Tasks: delete-card-api
 
-- [ ] **1.** Исправить `deleteCard` в `server/services/cards.service.ts` — сравнение длин до переназначения `cards = newCards`.
-- [ ] **2.** Изменить маршрут в `server/routes/cards.router.ts` — `DELETE /cards/:id`.
-- [ ] **3.** Исправить контроллер в `server/controllers/cards.controller.ts` — `req.params.id`, `204` без тела, `404 JSON` при отсутствии карточки.
-- [ ] **4.** Добавить в `server/index.ts` общий 404 JSON и error-middleware 500 JSON (4 параметра) после роутов.
-- [ ] **5.** Проверить TypeScript (`tsc --noEmit`) и HTTP-сценарии (curl).
-- [ ] **6.** Удалить временный маршрут проверки 500 и проверить итоговый diff.
-- [ ] **7.** Убедиться, что `client/` не изменён.
-- [ ] **8.** Отложенная проверка интерфейса с клиентской частью KAN-2 (зависит от подключения `feature/delete-card`).
-- [ ] **9.** Создать `openspec/changes/delete-card-api/report.md` с фактическими результатами.
+- [x] **1.** Исправить `deleteCard` в `server/services/cards.service.ts` — сравнение длин до переназначения `cards = newCards`.
+- [x] **2.** Изменить маршрут в `server/routes/cards.router.ts` — `DELETE /cards/:id`.
+- [x] **3.** Исправить контроллер в `server/controllers/cards.controller.ts` — `req.params.id`, `204` без тела, `404 JSON` при отсутствии карточки.
+- [x] **4.** Добавить в `server/index.ts` общий 404 JSON и error-middleware 500 JSON (4 параметра) после роутов.
+- [x] **5.** Проверить TypeScript (`tsc --noEmit`) и HTTP-сценарии (curl).
+- [x] **6.** Удалить временный маршрут проверки 500 и проверить итоговый diff.
+- [x] **7.** Убедиться, что `client/` не изменён.
+- [x] **8.** Интерфейсная проверка с клиентской частью KAN-2 — выполнена пользователем вручную. Клиент KAN-2 (ветка `feature/delete-card`) подключён во временной интеграционной ветке `integration-test-delete-card` (worktree), сервер KAN-3 на порту 3001. Результат: карточка удаляется кнопкой ✕ и не возвращается после F5 без перезапуска сервера.
+- [x] **9.** Создать `openspec/changes/delete-card-api/report.md` с фактическими результатами.
 
 ## HTTP-сценарии (из tasks.md п. 5)
 

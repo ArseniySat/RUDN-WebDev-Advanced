@@ -53,11 +53,20 @@
 
 ---
 
-## Невыполненные проверки
+## Интерфейсная проверка (KAN-2 клиент)
 
-| # | Проверка | Причина |
-|---|---|---|
-| 1 | Интерфейсная проверка: кнопка ✕ → карточка исчезает → F5 → не возвращается | Зависит от подключения клиентской части KAN-2 (ветка `feature/delete-card`, PR #6). Не проверялась через curl |
+**Статус:** **PASS** — выполнена пользователем вручную.
+
+**Условия проверки:**
+- Клиент KAN-2 (ветка `feature/delete-card`) подключён во временной интеграционной ветке `integration-test-delete-card` (git worktree, отдельная папка).
+- Сервер KAN-3 (ветка `feature/delete-card-api`, коммит `bf77c87`) запущен на порту 3001.
+- Клиент запущен на порту 5174 (Vite), прокси `/api/*` → `http://localhost:3001`.
+- Версия клиента: Vite v8.1.4, React, `rudn-webdev-advanced-client`.
+- Версия сервера: Express, `DELETE /cards/:id`, 204/404 JSON.
+
+**Результат:** карточка удаляется кнопкой ✕ и не возвращается после обновления страницы (F5) без перезапуска сервера.
+
+> **Зависимость:** итоговая приёмка KAN-3 зависит от закрытия KAN-2 (PR #6, ветка `feature/delete-card`). Интерфейсная проверка выполнена в изолированном worktree; клиентский код не входит в ветку `feature/delete-card-api`.
 
 ---
 
@@ -65,3 +74,5 @@
 
 1. `aab6b68` — docs: fix design.md duplicates and shorten tasks.md
 2. `bf77c87` — feat(server): fix delete-card API — DELETE /cards/:id with 204/404 JSON
+3. `53bd04a` — docs: add report.md with actual test results
+4. `manual-check` — docs: mark interface check as verified by user
