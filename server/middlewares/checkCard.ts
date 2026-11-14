@@ -2,13 +2,18 @@ import type { NextFunction, Request, Response } from "express";
 
 export function checkCard(
     req: Request,
-    res: Response, 
+    res: Response,
     next: NextFunction
 ) {
-    if (!req.body.title) {
-        res.sendStatus(400);
+    const title = req.body?.title;
+
+    if (typeof title !== "string" || title.trim().length === 0) {
+        res.status(400).json({
+            error: "Название должно быть непустой строкой",
+        });
         return;
     }
 
+    req.body.title = title.trim();
     next();
 }
